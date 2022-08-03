@@ -1,0 +1,19 @@
+{
+  "name": "disgram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmegaPirat/DisGram.git"
+  },
+  "author": "OmegaPirat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmegaPirat/DisGram/issues"
+  },
+  "homepage": "https://github.com/OmegaPirat/DisGram#readme"
+}
