@@ -9,4 +9,4 @@ const app = express();
 app.use(cors());
 app.use('config', configRouter);
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
