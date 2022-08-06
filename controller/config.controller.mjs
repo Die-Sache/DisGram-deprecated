@@ -12,8 +12,9 @@ router.post('/setEnv', (req, res) => {
 });
 
 router.get('/start', (req, res) => {
-    console.log(process.env.TELEGRAM_BOT_TOKEN);
-     const telegramBot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
+    console.log("#############");
+    console.log(process.env.telegramChannelId);
+     const telegramBot = new Telegraf(process.env.telegramBotToken);
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 client.once('ready', () => {
@@ -21,18 +22,16 @@ client.once('ready', () => {
  
  });
  
- 
  client.on("messageCreate", (message) => {
     console.log(message.author.username)
-    if (message.channel.name === process.env.DISCORD_CHANNEL_NAME && !message.author.bot) {
-       telegramBot.telegram.sendMessage(process.env.TELEGRAM_CHANNEL_ID, message.content);
-       console.log(message.content);
+    if (message.channel.name === process.env.discordChannelName) {
+       telegramBot.telegram.sendMessage(process.env.telegramChannelId, message.content);
     }
- 
+
  });
 
  telegramBot.launch()
-client.login(process.env.DISCORD_BOT_TOKEN);
+client.login(process.env.discordBotToken);
 
 res.send("Success");
 
