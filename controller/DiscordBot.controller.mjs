@@ -1,6 +1,7 @@
 import express from 'express';
 import { Router } from 'express';
 import db from '../db/index.mjs';
+import tokenAuthentication from '../config/tokenAuthentication.config.mjs'
 
 const router = Router();
 let DiscordBot = db.DiscordBot;
