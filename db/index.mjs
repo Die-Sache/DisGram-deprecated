@@ -10,7 +10,14 @@ import Sequelize from "sequelize";
 //     dialect: dbConfig.DIALECT
 // });
 
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
+});
 const db = {};
 
 db.Sequelize = Sequelize;
