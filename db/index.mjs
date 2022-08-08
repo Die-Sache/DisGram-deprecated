@@ -5,11 +5,12 @@ import DiscordChannel from "./DiscordChannel.model.mjs";
 import Sequelize from "sequelize";
 import dbConfig from "../config/db.config.mjs";
 
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
-    dialect: dbConfig.DIALECT
-});
+// const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+//     host: dbConfig.HOST,
+//     dialect: dbConfig.DIALECT
+// });
 
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 const db = {};
 
 db.Sequelize = Sequelize;
