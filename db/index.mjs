@@ -3,7 +3,7 @@ import DiscordBot from "./DiscordBot.model.mjs";
 import TelegramBot from "./TelegramBot.model.mjs";
 import DiscordChannel from "./DiscordChannel.model.mjs";
 import Sequelize from "sequelize";
-import dbConfig from "../config/db.config.mjs";
+//import dbConfig from "../config/db.config.mjs";
 
 // const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 //     host: dbConfig.HOST,
