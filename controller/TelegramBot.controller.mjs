@@ -1,6 +1,7 @@
 import express from 'express';
 import { Router } from 'express';
 import db from '../db/index.mjs';
+import jwt from 'jsonwebtoken';
 
 const router = Router();
 let TelegramBot = db.TelegramBot;
@@ -9,8 +10,8 @@ let TelegramChannel = db.TelegramChannel;
 router.use(express.json());
 
 router.post('/', async (req, res) => {
-    TelegramBot.create(req.body);
-
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    TelegramBot.create({ ...req.body, UserId: userId });
     res.send("Success");
 })
 

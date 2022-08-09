@@ -1,14 +1,21 @@
 import jwt from 'jsonwebtoken';
 import { Router } from 'express';
 import express from 'express';
+import db from '../db/index.mjs';
+
 
 const router = Router();
+const User = db.User;
 
 router.use(express.json());
 
-router.post('/token', (req, res) => {
+router.post('/token', async (req, res) => {
 
-    let token = generateAccessToken({ username: req.body.username }, { expiresIn: '1800s' });
+    let user = await User.findOne({ where: { name: req.body.name, password: req.body.password } });
+    if (!user) {
+        return res.send("Invalid credentials");
+    }
+    let token = generateAccessToken({ userId: user.id, username: req.body.name }, { expiresIn: '1800s' });
     return res.send(token);
 });
 

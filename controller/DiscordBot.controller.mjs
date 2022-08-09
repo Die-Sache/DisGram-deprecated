@@ -1,7 +1,7 @@
 import express from 'express';
 import { Router } from 'express';
 import db from '../db/index.mjs';
-import tokenAuthentication from '../config/tokenAuthentication.config.mjs'
+import jwt from 'jsonwebtoken';
 
 const router = Router();
 let DiscordBot = db.DiscordBot;
@@ -10,7 +10,8 @@ let DiscordChannel = db.DiscordChannel;
 router.use(express.json());
 
 router.post('/', async (req, res) => {
-    DiscordBot.create(req.body);
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    DiscordBot.create({ ...req.body, UserId: userId });
 
     res.send("Success");
 })
