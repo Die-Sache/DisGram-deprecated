@@ -29,8 +29,9 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    let result = await DiscordBot.findByPk(req.params.id, {
+    let result = await DiscordBot.findOne({
         where: {
+            id: req.params.id,
             UserId: userId
         }
     });
