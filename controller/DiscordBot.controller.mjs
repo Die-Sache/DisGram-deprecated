@@ -29,6 +29,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
     let result = await DiscordBot.findOne({
         where: {
             id: req.params.id,
