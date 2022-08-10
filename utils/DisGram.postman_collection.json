@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "e4855dc5-bb21-4402-a03a-9adaac598615",
+		"name": "DisGram",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "registerToken",
+						"value": "rlUeOAMmk6rdZY5OjyFgaVUM4UA3Aha6VnSkISLEWuo1YiCFvWqMmnYRgyneExn",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"myuser\",\r\n    \"password\": \"abc\",\r\n    \"registerToken\": \"rlUeOAMmk6rdZY5OjyFgaVUM4UA3Aha6VnSkISLEWuo1YiCFvWqMmnYRgyneExn\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/User/register",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"User",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"myuser\",\r\n    \"password\": \"abc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/token",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create discord bot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTYxMDgzLCJleHAiOjE2NjAxNjI4ODN9.HwT8jaxt418FHoy62FvcYU-KNYASiICXv0wCgeoZHkE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/DiscordBot",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DiscordBot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get discord bot",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTYxMDgzLCJleHAiOjE2NjAxNjI4ODN9.HwT8jaxt418FHoy62FvcYU-KNYASiICXv0wCgeoZHkE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/DiscordBot/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DiscordBot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update discord bot",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTY0NDYxLCJleHAiOjE2NjAxNjYyNjF9.Ji_M8bDTAsXsIgWe47TOZ_IfNofhq1j75p7XWAai2sY",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"iji\": \"okok\",\r\n    \"token\": \"MTAwNDMyODU0NDE4NjQwNDk0Nw.GOGglv.Dv3DPx4YEZd3JT5XGWzbRHtVkZTivQML4AaO9Q\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/DiscordBot/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DiscordBot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create discord channel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTYxMDgzLCJleHAiOjE2NjAxNjI4ODN9.HwT8jaxt418FHoy62FvcYU-KNYASiICXv0wCgeoZHkE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/DiscordChannel",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DiscordChannel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get discord channel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/DiscordChannel/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DiscordChannel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update discord channel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\": \"test\",\r\n    \"DiscordBotId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/DiscordChannel/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"DiscordChannel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create telegram bot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTYxMDgzLCJleHAiOjE2NjAxNjI4ODN9.HwT8jaxt418FHoy62FvcYU-KNYASiICXv0wCgeoZHkE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/TelegramBot",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"TelegramBot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get telegram bot",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/TelegramBot/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"TelegramBot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update telegram bot",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"5442686371:AAHWllCyO5yJZfTuc352VJCkirPEOLBN36M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/TelegramBot/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"TelegramBot",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create telegram channel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTYxMDgzLCJleHAiOjE2NjAxNjI4ODN9.HwT8jaxt418FHoy62FvcYU-KNYASiICXv0wCgeoZHkE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/TelegramChannel",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"TelegramChannel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all telegram channels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/TelegramChannel",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"TelegramChannel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update telegram channel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channelId\": \"-1001313695505\",\r\n    \"retentionTime\": \"10\",\r\n    \"TelegramBotId\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/TelegramChannel/1",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"TelegramChannel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enable DisGram Bot",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoibXl1c2VyIiwiaWF0IjoxNjYwMTYxMDgzLCJleHAiOjE2NjAxNjI4ODN9.HwT8jaxt418FHoy62FvcYU-KNYASiICXv0wCgeoZHkE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{protocol}}{{appname}}.{{host}}{{port}}/api/v1/config/enable",
+					"host": [
+						"{{protocol}}{{appname}}",
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"config",
+						"enable"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

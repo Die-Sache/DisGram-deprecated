@@ -16,14 +16,25 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    let result = await TelegramBot.findByPk(req.params.id, {
-        include: TelegramChannel
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    let result = await TelegramBot.findOne({
+        include: TelegramChannel,
+        where: {
+            id: req.params.id,
+            UserId: userId
+        }
     });
     res.send(result.dataValues);
 });
 
 router.put('/:id', async (req, res) => {
-    let result = await TelegramBot.findByPk(req.params.id);
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    let result = await TelegramBot.findOne({
+        where: {
+            id: req.params.id,
+            UserId: userId
+        }
+    });
     result.set(req.body);
     result.save();
     res.send(`The discord bot token is updated to ${req.body}`);

@@ -38,7 +38,7 @@ router.put('/:id', async (req, res) => {
     });
     result.set(req.body);
     result.save();
-    res.send(`The discord bot token is updated to ${req.body}`);
+    res.send(`The discord bot token is updated to ${req.body.token}`);
 });
 
 export default router;

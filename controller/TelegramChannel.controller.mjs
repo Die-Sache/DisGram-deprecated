@@ -14,9 +14,28 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    let result = await TelegramChannel.findAll();
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    let result = await TelegramChannel.findAll({
+        where: {
+            id: req.params.id,
+            UserId: userId
+        }
+    });
     let channels = result.map(it => it.dataValues);
     res.send(channels);
+});
+
+router.put('/:id', async (req, res) => {
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    let result = await TelegramChannel.findOne({
+        where: {
+            id: req.params.id,
+            UserId: userId
+        }
+    });
+    result.set(req.body);
+    result.save();
+    res.send(`The discord bot token is updated to ${req.body}`);
 });
 
 export default router;
