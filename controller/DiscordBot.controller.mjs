@@ -17,14 +17,23 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    let result = await DiscordBot.findByPk(req.params.id, {
-        include: DiscordChannel
+    let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
+    let result = await DiscordBot.findOne({
+        include: DiscordChannel,
+        where: {
+            id: req.params.id,
+            UserId: userId
+        }
     });
-    res.send(result.dataValues);
+    res.send(result?.dataValues || {});
 });
 
 router.put('/:id', async (req, res) => {
-    let result = await DiscordBot.findByPk(req.params.id);
+    let result = await DiscordBot.findByPk(req.params.id, {
+        where: {
+            UserId: userId
+        }
+    });
     result.set(req.body);
     result.save();
     res.send(`The discord bot token is updated to ${req.body}`);
