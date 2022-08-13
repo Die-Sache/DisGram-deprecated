@@ -1,6 +1,7 @@
 import express from 'express';
 import { Router } from 'express';
 import db from '../db/index.mjs';
+import jwt from 'jsonwebtoken';
 
 const router = Router();
 let DiscordChannel = db.DiscordChannel;
