@@ -16,11 +16,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     let userId = jwt.decode(req.headers.authorization.split(' ')[1]).userId;
-    let result = await TelegramChannel.findAll({
-        where: {
-            id: req.params.id,
-        }
-    });
+    let result = await TelegramChannel.findAll();
     let channels = result.map(it => it.dataValues);
     res.send(channels);
 });
