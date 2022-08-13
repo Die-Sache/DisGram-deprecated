@@ -13,10 +13,11 @@ router.post('/token', async (req, res) => {
 
     let user = await User.findOne({ where: { name: req.body.name, password: req.body.password } });
     if (!user) {
-        return res.send("Invalid credentials");
+        res.statusCode = 401;
+        return res.send({ error: "Invalid credentials" });
     }
     let token = generateAccessToken({ userId: user.id, username: req.body.name }, { expiresIn: '1800s' });
-    return res.send(token);
+    return res.send({ token });
 });
 
 function generateAccessToken(username) {
