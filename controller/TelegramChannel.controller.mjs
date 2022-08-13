@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
     let result = await TelegramChannel.findAll({
         where: {
             id: req.params.id,
-            UserId: userId
         }
     });
     let channels = result.map(it => it.dataValues);
@@ -31,7 +30,6 @@ router.put('/:id', async (req, res) => {
     let result = await TelegramChannel.findOne({
         where: {
             id: req.params.id,
-            UserId: userId
         }
     });
     result.set(req.body);
